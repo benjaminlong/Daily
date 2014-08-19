@@ -24,7 +24,7 @@ Download the installer [http://nodejs.org/download/](http://nodejs.org/download/
 
 `cd /path/to/your/project/forder/`
 
-`git clone git@github.com:benjaminlong/Daily.git`
+`git clone https://github.com/benjaminlong/Daily.git` or fork and then git clone ssh your repo
 
 `cd Daily`
 
