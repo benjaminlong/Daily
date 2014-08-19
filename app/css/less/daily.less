@@ -1,9 +1,32 @@
-.section{
-	min-height: 100vh;	
-	.section-background{			
+@widthTopic :10%;
+
+@media (min-width: @screen-md-min) {
+	#main{
+		.section-images{
+			ul.images li.active:before, .topic{
+					width: @widthTopic;
+			}	
+		}	
+	}
+}
+@media (max-width: @screen-md-min) {
+	#main{
+		.section-images{
+			ul.images li.active:before, .topic{
+					width: @widthTopic * 2;
+			}	
+		}	
+	}
+}
+
+
+
+#main{
+	min-height: 100vh;
+	.section-background{	
+		position: fixed;		
 		display: block;
 		width: 100%;
-		position: absolute;
 		top: 0;
 		height: 100vh;
 		.section-background-image{
@@ -18,6 +41,92 @@
 			background-size: cover;
 			background-position: center;			
 			height: 100vh;
+		}
+	}	
+	.section-header{
+		display: block;
+		width: 100%;
+		position: fixed;
+		top: 0;		
+		z-index: 1;
+		&:after{
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: -200%;
+			z-index: -1;
+			display: block;
+			background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(0,0,0,0.3)), to(rgba(0,0,0,0)));
+			background-image: -moz-linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0));
+			background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0));
+			background-image: -o-linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0));
+			background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0));
+			background-repeat: repeat-x;
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4d000000', endColorstr='#00000000', GradientType=0);			
+		}
+		.logo{
+			width: 0px;/*permet de centrer le titre*/
+			.pull-left();
+			img{
+				width: 150px;
+				margin: 15px;
+			}
+		}
+		h1{
+			font-size: 40px;
+			text-align: center;
+			color: white;
+			font-weight: 300;
+		}
+	}
+	#content{
+		background-color: white;
+		position: absolute;
+		width: 100%;
+		top: 100%;
+		z-index: 2;
+		.section-images{
+			position: absolute;
+			width: 100%;
+			top: 0;
+			z-index: 1;
+			ul.images {
+				font-size: 0;/*Important, permet d'éviter des gaps entre les images*/
+				position: absolute;
+				bottom: 0;
+				margin: 0;
+				padding: 0;
+				white-space: nowrap;
+				width: 100%;
+				li {
+					font-size: 1em;
+					float: left;
+					list-style: none;
+					a:after{
+						content: "";
+						position: relative;
+						bottom: 0px;
+						height: 0px;
+						margin-bottom: 0px;					
+						display: block;
+						background-color: @brand-primary;		
+						.transition(all 0.2s ease);
+					}
+				}			
+				li.active a:after, li.inactive a:hover:after{
+					bottom: 5px;
+					height: 5px;
+					margin-bottom: -5px;						
+				}
+			}	
+			.topic{
+				display: inline-block;
+				img{
+					width: 100%;				
+				}
+			}
 		}
 	}
 }
