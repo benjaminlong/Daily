@@ -20,7 +20,7 @@ Download the installer [http://nodejs.org/download/](http://nodejs.org/download/
 
 `npm install -g grunt-cli bower yo`
 
-## ...
+##Get Started
 
 `cd /path/to/your/project/forder/`
 
