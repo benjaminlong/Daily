@@ -28,4 +28,4 @@ Download the installer [http://nodejs.org/download/](http://nodejs.org/download/
 
 `cd Daily`
 
-`grunt server`
+`grunt serve`
