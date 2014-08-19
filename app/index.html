@@ -20,7 +20,7 @@
     <div id="main">
 
       <div class="section-background">
-        <div class="section-background-image blur">
+        <div class="section-background-image blur" data-0="opacity:0;" data-300="opacity:1;">
         </div>        
         <div class="section-background-image net">
         </div>        
@@ -139,10 +139,24 @@
         <!-- endbuild -->
         <script src="scripts/jquery-2.1.1.min.js"></script>       
         <script src="scripts/waypoints.min.js"></script> 
-        <script type="text/javascript">
-          $('#example-direction').waypoint(function(direction) {
-            notify('Direction example triggered scrolling ' + direction);
-          });          
+        <script type="text/javascript">      
+          $('#content').waypoint(function(direction) {
+              if (direction === 'down') {
+                $('#content').css('position','fixed');
+                $('#content').css('top','200px');                
+                console.log('on va vers le haut');
+              }
+              else if(direction==='up'){
+                $('#content').css('position','absolute');  
+                $('#content').css('top','100%');                              
+                console.log('on va vers le bas');
+              }
+            }, {offset: '200px'});          
         </script>
+        <script type="text/javascript" src="scripts/skrollr.min.js"></script>
+        <script type="text/javascript">
+          var s = skrollr.init();
+        </script>  
+                
 </body>
 </html>
