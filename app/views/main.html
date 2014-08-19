@@ -1,0 +1,12 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="input-group-btn">
+      <input type="submit" class="btn btn-lg btn-primary" value="Refresh" ng-click="refreshTopics()">
+    </div>
+  </div>
+  <div class="row ptl">
+    <div class="topics" ng-repeat="topic in topics">
+      <div class="topic" ng-model="topic">{{ topic }}<div>
+    </div>
+  </div>
+</div>
