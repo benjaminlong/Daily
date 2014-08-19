@@ -2,18 +2,13 @@
 <html class="no-js">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Daily - your feed of news</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
+    <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic' rel='stylesheet' type='text/css'>    
+    <link  href="css/main.css" rel="stylesheet">    
   </head>
   <body ng-app="dailyApp">
     <!--[if lt IE 7]>
@@ -21,17 +16,13 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container">
-      <div class="header">
-        <h3 class="text-muted">daily</h3>
+    <section id="main-picture" class="section">
+      <div class="section-background">
+        <div class="section-background-image">
+        </div>        
       </div>
-
-      <div ng-view=""></div>
-
-      <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
-    </div>
+    </section>
+    <h1>Hello, world!</h1>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -72,5 +63,6 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <!-- endbuild -->
+        <script src="scripts/jquery-2.1.1.min.js"></script>        
 </body>
 </html>
