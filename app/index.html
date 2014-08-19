@@ -20,7 +20,9 @@
     <div id="main">
 
       <div class="section-background">
-        <div class="section-background-image">
+        <div class="section-background-image blur">
+        </div>        
+        <div class="section-background-image net">
         </div>        
       </div>
 
@@ -34,60 +36,63 @@
       <section id="content">
         <!-- La .section images est en bas de section quand inactive, et se met en header quand on scrolle. -->
         <div class="section-images inactive"> 
-          <ul class="images">
-            <li class="topic active">
+          <div class="images">
+            <div class="topic active">
               <a href="#">
                 <img src="images/activesmall.jpg">
               </a>
-            </li>
-            <li class="topic inactive">
+            </div>
+            <div class="topic inactive">
               <a href="#">
                 <img src="images/inactivesmall1.jpg">
               </a>
-            </li>
-            <li class="topic inactive">
+            </div>
+            <div class="topic inactive">
               <a href="#">
                 <img src="images/inactivesmall2.png">
               </a>
-            </li>  
-            <li class="topic inactive">
+            </div>  
+            <div class="topic inactive">
               <a href="#">
                 <img src="images/inactivesmall3.png">
               </a>
-            </li>
-            <li class="topic inactive">
+            </div>
+            <div class="topic inactive">
               <a href="#">
                 <img src="images/inactivesmall4.jpg">
               </a>
-            </li>                        
-            <li class="topic inactive">
+            </div>                        
+            <div class="topic inactive">
               <a href="#">
                 <img src="images/inactivesmall5.jpg">
               </a>
-            </li>
-            <li class="topic inactive">
+            </div>
+            <div class="topic inactive">
               <a href="#">
                 <img src="images/inactivesmall6.jpg">
               </a>
-            </li>  
-            <li class="topic inactive">
+            </div>  
+            <div class="topic inactive">
               <a href="#">
                 <img src="images/inactivesmall7.jpg">
               </a>
-            </li>
-            <li class="topic inactive">
+            </div>
+            <div class="topic inactive">
               <a href="#">
                 <img src="images/inactivesmall8.jpg">
               </a>
-            </li>                        
-            <li class="topic inactive">
+            </div>                        
+            <div class="topic inactive">
               <a href="#">
                 <img src="images/inactivesmall9.jpg">
               </a>
-            </li>          
-          </ul>         
+            </div>          
+          </div>         
         </div>      
-        <h1>Hello, world!</h1> <br/><br/><br/><br/><br/><br/><br/><br/>
+
+        <div class="section-tweets">
+          <h1>Hello, world!</h1> <br/><br/><br/><br/><br/><br/><br/><br/>
+        </div>
       </section>
 
     </div>
@@ -132,6 +137,12 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <!-- endbuild -->
-        <script src="scripts/jquery-2.1.1.min.js"></script>        
+        <script src="scripts/jquery-2.1.1.min.js"></script>       
+        <script src="scripts/waypoints.min.js"></script> 
+        <script type="text/javascript">
+          $('#example-direction').waypoint(function(direction) {
+            notify('Direction example triggered scrolling ' + direction);
+          });          
+        </script>
 </body>
 </html>

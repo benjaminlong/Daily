@@ -1,9 +1,14 @@
+// Variables persos
 @widthTopic :10%;
+@height-header:100px;
+@height-image-section:75px;
+@height-img-active-indicator:5px;
 
+// Pour la section-iamges : permet de passer d'une rangée de 10 à une rangée de 5 par exemple. 
 @media (min-width: @screen-md-min) {
 	#main{
 		.section-images{
-			ul.images li.active:before, .topic{
+			.images .topic.active:before, .topic{
 					width: @widthTopic;
 			}	
 		}	
@@ -12,16 +17,15 @@
 @media (max-width: @screen-md-min) {
 	#main{
 		.section-images{
-			ul.images li.active:before, .topic{
+			.images .topic.active:before, .topic{
 					width: @widthTopic * 2;
 			}	
 		}	
 	}
 }
 
-
-
 #main{
+	overflow-x: hidden;	
 	min-height: 100vh;
 	.section-background{	
 		position: fixed;		
@@ -30,7 +34,6 @@
 		top: 0;
 		height: 100vh;
 		.section-background-image{
-			background-image: url("../images/activebig.jpg");	
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -42,10 +45,20 @@
 			background-position: center;			
 			height: 100vh;
 		}
+		.net{
+			opacity: 1;
+			background-image: url("../images/activebig.jpg");	
+		}
+		.blur{
+			opacity: 0;
+			z-index: 1;
+			background-image: url("../images/activebigblur.jpg");				
+		}	
 	}	
 	.section-header{
 		display: block;
 		width: 100%;
+		height: @height-header;
 		position: fixed;
 		top: 0;		
 		z-index: 1;
@@ -79,6 +92,7 @@
 			text-align: center;
 			color: white;
 			font-weight: 300;
+			margin-top: 70vh;
 		}
 	}
 	#content{
@@ -90,9 +104,11 @@
 		.section-images{
 			position: absolute;
 			width: 100%;
-			top: 0;
 			z-index: 1;
-			ul.images {
+			height: @height-image-section;
+			top: -@height-image-section;
+			overflow: hidden;			
+			.images {
 				font-size: 0;/*Important, permet d'éviter des gaps entre les images*/
 				position: absolute;
 				bottom: 0;
@@ -100,33 +116,40 @@
 				padding: 0;
 				white-space: nowrap;
 				width: 100%;
-				li {
+				.topic {
+					display: inline-block;
 					font-size: 1em;
-					float: left;
-					list-style: none;
-					a:after{
-						content: "";
-						position: relative;
-						bottom: 0px;
-						height: 0px;
-						margin-bottom: 0px;					
+					a{
 						display: block;
-						background-color: @brand-primary;		
-						.transition(all 0.2s ease);
+						overflow: hidden;
+						height: 100%;
+						img{
+							vertical-align: baseline;
+							width: 100%;	
+							min-height: 100%;			
+						}						
+						&:after{
+							content: "";
+							position: relative;
+							bottom: 0px;
+							height: 0px;
+							margin-bottom: 0px;					
+							display: block;
+							background-color: @brand-primary;		
+							.transition(all 0.2s ease);
+						}						
 					}
 				}			
-				li.active a:after, li.inactive a:hover:after{
-					bottom: 5px;
-					height: 5px;
-					margin-bottom: -5px;						
+				.topic.active a:after, .topic.inactive a:hover:after{
+					bottom: @height-img-active-indicator;
+					height: @height-img-active-indicator;
+					margin-bottom: -@height-img-active-indicator;						
 				}
 			}	
-			.topic{
-				display: inline-block;
-				img{
-					width: 100%;				
-				}
-			}
+		}
+		.section-tweets{
+			z-index: 2;
+			padding-top: 10px;
 		}
 	}
 }
