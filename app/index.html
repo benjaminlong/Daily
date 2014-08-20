@@ -93,7 +93,9 @@
 
     <div id="section-tweets">
       <div class="container">
-        <h1>Hello, world!</h1> <br/><br/><br/><br/><br/><br/><br/><br/> <br/><br/><br/><br/><br/><br/><br/><br/> <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> <br/><br/><br/><br/><br/><br/><br/><br/> <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> <br/><br/><br/><br/><br/><br/><br/><br/> <br/><br/><br/><br/><br/><br/><br/><br/><h1>Hello, world!</h1>
+        <div id="scroll-tweets">
+        </div>
+        <h1>Hello, world!</h1> <br/><br/><br/><br/><br/><br/><br/><br/> <br/><br/><br/><br/><br/><br/><br/><br/> <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> <br/><br/><br/><br/><br/><br/><br/><br/> <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> <br/><br/><br/><br/><br/><br/><br/><br/> <br/><br/><br/><br/><br/><br/><br/><br/><h1>Hello, world!</h1>          
       </div>
     </div>          
 
@@ -142,15 +144,25 @@
         <script type="text/javascript">      
           $('#section-tweets').waypoint(function(direction) {
               if (direction === 'down') {
-                console.log('on va vers le bas');
                 $('#main').css({"position": "fixed","top": "0px","width": "100%","height": "200px"});
                 $('#section-tweets').css({"position": "fixed","margin-top": "200px","width": "100%"});        
+                $('body').css({'overflow':'hidden'});
               }
               else if(direction==='up'){
                 $('#main').css({"position": "","top": "","width": "","height": ""});
-                $('#section-tweets').css({"position": "","margin-top": "","width": ""});        
+                $('#section-tweets').css({"position": "","margin-top": "","width": ""});      
               }
             }, {offset: '200px'});          
+            </script>
+          <script type="text/javascript">    
+          $('#scroll-tweets').waypoint(function(direction) {
+              if (direction === 'up') {
+                $('body').css({'overflow':'auto'});
+                $('#main').css({"position": "","top": "","width": "","height": ""});
+                $('#section-tweets').css({"position": "","margin-top": "","width": ""});                 
+                console.log("e");
+               }            
+          },{ context: '#section-tweets' });
         </script>
         <script type="text/javascript" src="scripts/skrollr.min.js"></script>
         <script type="text/javascript">
