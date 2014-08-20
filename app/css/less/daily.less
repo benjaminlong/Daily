@@ -24,135 +24,135 @@
 	}
 }
 
-#main{
-	overflow-x: hidden;	
-	min-height: 100vh;
-	.section-background{	
-		position: fixed;		
-		display: block;
-		width: 100%;
+#section-background{	
+	position: fixed;		
+	display: block;
+	width: 100%;
+	top: 0;
+	// height: 100vh;
+	.section-background-image{
+		position: absolute;
 		top: 0;
+		left: 0;
+		right: 0;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		background-position: center;			
 		height: 100vh;
-		.section-background-image{
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			-webkit-background-size: cover;
-			-moz-background-size: cover;
-			-o-background-size: cover;
-			background-size: cover;
-			background-position: center;			
-			height: 100vh;
-		}
-		.net{
-			opacity: 1;
-			background-image: url("../images/activebig.jpg");	
-		}
-		.blur{
-			opacity: 0;
-			z-index: 1;
-			background-image: url("../images/activebigblur.jpg");				
-		}	
-	}	
-	.section-header{
-		display: block;
-		width: 100%;
-		height: @height-header;
-		position: fixed;
-		top: 0;		
+	}
+	.net{
+		z-index: 0;			
+		background-image: url("../images/activebig.jpg");	
+	}
+	.blur{
 		z-index: 1;
-		&:after{
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: -200%;
-			z-index: -1;
-			display: block;
-			background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(0,0,0,0.3)), to(rgba(0,0,0,0)));
-			background-image: -moz-linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0));
-			background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0));
-			background-image: -o-linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0));
-			background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0));
-			background-repeat: repeat-x;
-			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4d000000', endColorstr='#00000000', GradientType=0);			
-		}
-		.logo{
-			width: 0px;/*permet de centrer le titre*/
-			.pull-left();
-			img{
-				width: 150px;
-				margin: 15px;
-			}
-		}
-		h1{
-			font-size: 40px;
-			text-align: center;
-			color: white;
-			font-weight: 300;
+		background-image: url("../images/activebigblur.jpg");				
+	}	
+}	
+
+.section-header{
+	display: block;
+	width: 100%;
+	height: @height-header;
+	position: fixed;
+	top: 0;		
+	&:after{
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: -200%;
+		z-index: -1;
+		display: block;
+		background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(0,0,0,0.3)), to(rgba(0,0,0,0)));
+		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0));
+		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0));
+		background-image: -o-linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0));
+		background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0));
+		background-repeat: repeat-x;
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4d000000', endColorstr='#00000000', GradientType=0);			
+	}
+	.logo{
+		width: 0px;/*permet de centrer le titre*/
+		.pull-left();
+		img{
+			width: 150px;
+			margin: 15px;
 		}
 	}
-	#content{
-		height: 100%;
-		background-color: white;
+	h1{
+		font-size: 40px;
+		text-align: center;
+		color: white;
+		font-weight: 300;
+	}
+}
+
+#main{
+	height: 100vh;
+	// permet de ne pas avoir d'espace vide après le container
+	// margin-top: 100vh;
+	.section-images{
 		position: absolute;
 		width: 100%;
-		top: 100%;
-		z-index: 2;
-		.section-images{
+		top: 100%;	
+		height: @height-image-section;
+		margin-top: -@height-image-section;
+		overflow: hidden;			
+		.images {
+			font-size: 0;/*Important, permet d'éviter des gaps entre les images*/
 			position: absolute;
+			bottom: 0;
+			margin: 0;
+			padding: 0;
+			white-space: nowrap;
 			width: 100%;
-			z-index: 1;
-			height: @height-image-section;
-			top: -@height-image-section;
-			overflow: hidden;			
-			.images {
-				font-size: 0;/*Important, permet d'éviter des gaps entre les images*/
-				position: absolute;
-				bottom: 0;
-				margin: 0;
-				padding: 0;
-				white-space: nowrap;
-				width: 100%;
-				.topic {
-					display: inline-block;
-					font-size: 1em;
-					a{
+			.topic {
+				display: inline-block;
+				font-size: 1em;
+				a{
+					display: block;
+					overflow: hidden;
+					height: 100%;
+					img{
+						vertical-align: baseline;
+						width: 100%;	
+						min-height: 100%;			
+					}						
+					&:after{
+						content: "";
+						position: relative;
+						bottom: 0px;
+						height: 0px;
+						margin-bottom: 0px;					
 						display: block;
-						overflow: hidden;
-						height: 100%;
-						img{
-							vertical-align: baseline;
-							width: 100%;	
-							min-height: 100%;			
-						}						
-						&:after{
-							content: "";
-							position: relative;
-							bottom: 0px;
-							height: 0px;
-							margin-bottom: 0px;					
-							display: block;
-							background-color: @brand-primary;		
-							.transition(all 0.2s ease);
-						}						
-					}
-				}			
-				.topic.active a:after, .topic.inactive a:hover:after{
-					bottom: @height-img-active-indicator;
-					height: @height-img-active-indicator;
-					margin-bottom: -@height-img-active-indicator;						
+						background-color: @brand-primary;		
+						.transition(all 0.2s ease);
+					}						
 				}
-			}	
-		}
+			}			
+			.topic.active a:after, .topic.inactive a:hover:after{
+				bottom: @height-img-active-indicator;
+				height: @height-img-active-indicator;
+				margin-bottom: -@height-img-active-indicator;						
+			}
+		}	
 	}
 }
 
 
 //Contenu des tweets
-.section-tweets{
-	z-index: 2;
-	padding-top: 10px;
+#section-tweets{
+	overflow: scroll;
+	height: 100%;
+	.container{
+		background-color: white;
+		padding-top: 10px;		
+		position: relative;
+		width: 100%;
+		min-height: 80%;		
+	}
 }

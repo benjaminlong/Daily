@@ -17,84 +17,85 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <section id="main">
+    <div id="section-background">
+      <div class="section-background-image blur" data-0="opacity:0;" data-300="opacity:1;">
+      </div>        
+      <div class="section-background-image net">
+      </div>        
+    </div>
 
-      <div class="section-background">
-        <div class="section-background-image blur" data-0="opacity:0;" data-300="opacity:1;">
-        </div>        
-        <div class="section-background-image net">
-        </div>        
-      </div>
+    <div class="section-header">
+      <a href="#" class="logo">
+        <img src="images/logo-white.png">
+      </a>
+      <h1>Hashtag1 Keyword2 Mot-clé 3</h1>            
+    </div>
 
-      <div class="section-header">
-        <a href="#" class="logo">
-          <img src="images/logo-white.png">
-        </a>
-        <h1>Hashtag1 Keyword2 Mot-clé 3</h1>            
-      </div>
+    <div id="main">
   
-      <div id="content">
         <!-- La .section images est en bas de section quand inactive, et se met en header quand on scrolle. -->
-        <div class="section-images inactive"> 
-          <div class="images">
-            <div class="topic active">
-              <a href="#">
-                <img src="images/activesmall.jpg">
-              </a>
-            </div>
-            <div class="topic inactive">
-              <a href="#">
-                <img src="images/inactivesmall1.jpg">
-              </a>
-            </div>
-            <div class="topic inactive">
-              <a href="#">
-                <img src="images/inactivesmall2.png">
-              </a>
-            </div>  
-            <div class="topic inactive">
-              <a href="#">
-                <img src="images/inactivesmall3.png">
-              </a>
-            </div>
-            <div class="topic inactive">
-              <a href="#">
-                <img src="images/inactivesmall4.jpg">
-              </a>
-            </div>                        
-            <div class="topic inactive">
-              <a href="#">
-                <img src="images/inactivesmall5.jpg">
-              </a>
-            </div>
-            <div class="topic inactive">
-              <a href="#">
-                <img src="images/inactivesmall6.jpg">
-              </a>
-            </div>  
-            <div class="topic inactive">
-              <a href="#">
-                <img src="images/inactivesmall7.jpg">
-              </a>
-            </div>
-            <div class="topic inactive">
-              <a href="#">
-                <img src="images/inactivesmall8.jpg">
-              </a>
-            </div>                        
-            <div class="topic inactive">
-              <a href="#">
-                <img src="images/inactivesmall9.jpg">
-              </a>
-            </div>          
-          </div>         
-        </div>      
-      </div>
-    </section>
+      <div class="section-images inactive"> 
+        <div class="images">
+          <div class="topic active">
+            <a href="#">
+              <img src="images/activesmall.jpg">
+            </a>
+          </div>
+          <div class="topic inactive">
+            <a href="#">
+              <img src="images/inactivesmall1.jpg">
+            </a>
+          </div>
+          <div class="topic inactive">
+            <a href="#">
+              <img src="images/inactivesmall2.png">
+            </a>
+          </div>  
+          <div class="topic inactive">
+            <a href="#">
+              <img src="images/inactivesmall3.png">
+            </a>
+          </div>
+          <div class="topic inactive">
+            <a href="#">
+              <img src="images/inactivesmall4.jpg">
+            </a>
+          </div>                        
+          <div class="topic inactive">
+            <a href="#">
+              <img src="images/inactivesmall5.jpg">
+            </a>
+          </div>
+          <div class="topic inactive">
+            <a href="#">
+              <img src="images/inactivesmall6.jpg">
+            </a>
+          </div>  
+          <div class="topic inactive">
+            <a href="#">
+              <img src="images/inactivesmall7.jpg">
+            </a>
+          </div>
+          <div class="topic inactive">
+            <a href="#">
+              <img src="images/inactivesmall8.jpg">
+            </a>
+          </div>                        
+          <div class="topic inactive">
+            <a href="#">
+              <img src="images/inactivesmall9.jpg">
+            </a>
+          </div>          
+        </div>         
+      </div>     
 
-    <section class="section-tweets">
-      <h1>Hello, world!</h1> <br/><br/><br/><br/><br/><br/><br/><br/>
-    </section>          
+    </div>
+
+    <div id="section-tweets">
+      <div class="container">
+        <h1>Hello, world!</h1> <br/><br/><br/><br/><br/><br/><br/><br/> <br/><br/><br/><br/><br/><br/><br/><br/> <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> <br/><br/><br/><br/><br/><br/><br/><br/> <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> <br/><br/><br/><br/><br/><br/><br/><br/> <br/><br/><br/><br/><br/><br/><br/><br/><h1>Hello, world!</h1>
+      </div>
+    </div>          
 
 
 
@@ -139,22 +140,21 @@
         <script src="scripts/jquery-2.1.1.min.js"></script>       
         <script src="scripts/waypoints.min.js"></script> 
         <script type="text/javascript">      
-          $('#content').waypoint(function(direction) {
+          $('#section-tweets').waypoint(function(direction) {
               if (direction === 'down') {
-                $('#content').css('position','fixed');
-                $('#content').css('top','200px');                
-                console.log('on va vers le haut');
+                console.log('on va vers le bas');
+                $('#main').css({"position": "fixed","top": "0px","width": "100%","height": "200px"});
+                $('#section-tweets').css({"position": "fixed","margin-top": "200px","width": "100%"});        
               }
               else if(direction==='up'){
-                $('#content').css('position','absolute');  
-                $('#content').css('top','100%');                              
-                console.log('on va vers le bas');
+                $('#main').css({"position": "","top": "","width": "","height": ""});
+                $('#section-tweets').css({"position": "","margin-top": "","width": ""});        
               }
             }, {offset: '200px'});          
         </script>
         <script type="text/javascript" src="scripts/skrollr.min.js"></script>
         <script type="text/javascript">
-          var s = skrollr.init();
+          var s = skrollr.init({forceHeight: true});
         </script>  
                 
 </body>
