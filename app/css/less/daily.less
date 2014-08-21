@@ -1,158 +1,199 @@
 // Variables persos
-@widthTopic :10%;
-@height-header:100px;
-@height-image-section:75px;
+@widthTopic :20%;
+@height-header:@navbar-height;
+@height-image-section:@height-header;
 @height-img-active-indicator:5px;
+@margin-logo:10px;
 
-// Pour la section-iamges : permet de passer d'une rangée de 10 à une rangée de 5 par exemple. 
-@media (min-width: @screen-md-min) {
-	#main{
-		.section-images{
-			.images .topic.active:before, .topic{
-					width: @widthTopic;
-			}	
-		}	
-	}
-}
-@media (max-width: @screen-md-min) {
-	#main{
-		.section-images{
-			.images .topic.active:before, .topic{
-					width: @widthTopic * 2;
-			}	
-		}	
-	}
-}
+//Autres variables modifiées
+@navbar-height:75px;
 
-#section-background{	
-	position: fixed;		
-	display: block;
-	width: 100%;
+#header{
+	position: fixed;
 	top: 0;
-	// height: 100vh;
-	.section-background-image{
+	width: 100%
+}
+
+
+#first-section{	
+	height: 100vh;	
+	.titre{
+		color: white;
+		margin-top: 0px;
+		position: fixed;
+		width: 100%;
+	}	
+}
+
+#section-images{
+	position: absolute;
+	width: 100%;
+	top: 100%;	
+	height: @height-image-section;
+	margin-top: -@height-image-section;
+	overflow: hidden;			
+	.box-shadow(0 2px 3px rgba(0,0,0,.1));
+	.images {
+		font-size: 0;/*Important, permet d'éviter des gaps entre les images*/
 		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
-		background-position: center;			
-		height: 100vh;
-	}
-	.net{
-		z-index: 0;			
-		background-image: url("../images/activebig.jpg");	
-	}
-	.blur{
-		z-index: 1;
-		background-image: url("../images/activebigblur.jpg");				
+		bottom: 0;
+		margin: 0;
+		padding: 0;
+		white-space: nowrap;
+		width: 100%;
+		.topic {
+			display: inline-block;
+			font-size: 1em;
+			width: @widthTopic;
+			a{
+				display: block;
+				overflow: hidden;
+				height: 100%;
+				img{
+					vertical-align: baseline;
+					width: 100%;	
+					min-height: 100%;			
+				}						
+				&:after{
+					content: "";
+					position: relative;
+					bottom: 0px;
+					height: 0px;
+					margin-bottom: 0px;					
+					display: block;
+					background-color: @brand-primary;		
+					.transition(all 0.2s ease);
+				}						
+			}
+		}			
+		.topic.active a:after, .topic.inactive a:hover:after{
+			bottom: @height-img-active-indicator;
+			height: @height-img-active-indicator;
+			margin-bottom: -@height-img-active-indicator;						
+		}
 	}	
 }	
 
-.section-header{
-	display: block;
-	width: 100%;
-	height: @height-header;
-	position: fixed;
-	top: 0;		
-	&:after{
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: -200%;
-		z-index: -1;
-		display: block;
-		background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(0,0,0,0.3)), to(rgba(0,0,0,0)));
-		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0));
-		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0));
-		background-image: -o-linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0));
-		background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0));
-		background-repeat: repeat-x;
-		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4d000000', endColorstr='#00000000', GradientType=0);			
-	}
-	.logo{
-		width: 0px;/*permet de centrer le titre*/
-		.pull-left();
-		img{
-			width: 150px;
-			margin: 15px;
-		}
-	}
-	h1{
-		font-size: 40px;
-		text-align: center;
-		color: white;
-		font-weight: 300;
-	}
-}
-
 #main{
-	height: 100vh;
-	// permet de ne pas avoir d'espace vide après le container
-	//margin-top: 100vh;
-	.section-images{
-		position: absolute;
-		width: 100%;
-		top: 100%;	
-		height: @height-image-section;
-		margin-top: -@height-image-section;
-		overflow: hidden;			
-		.images {
-			font-size: 0;/*Important, permet d'éviter des gaps entre les images*/
-			position: absolute;
-			bottom: 0;
-			margin: 0;
-			padding: 0;
-			white-space: nowrap;
-			width: 100%;
-			.topic {
-				display: inline-block;
-				font-size: 1em;
-				a{
-					display: block;
-					overflow: hidden;
-					height: 100%;
-					img{
-						vertical-align: baseline;
-						width: 100%;	
-						min-height: 100%;			
-					}						
-					&:after{
-						content: "";
-						position: relative;
-						bottom: 0px;
-						height: 0px;
-						margin-bottom: 0px;					
-						display: block;
-						background-color: @brand-primary;		
-						.transition(all 0.2s ease);
-					}						
-				}
-			}			
-			.topic.active a:after, .topic.inactive a:hover:after{
-				bottom: @height-img-active-indicator;
-				height: @height-img-active-indicator;
-				margin-bottom: -@height-img-active-indicator;						
-			}
-		}	
-	}
-}
-
-
-//Contenu des tweets
-#section-tweets{
-	overflow: scroll;
-	height: 100%;
+	background-color: white;
 	.container{
-		background-color: white;
-		padding-top: 10px;		
+		background-color: white;			
 		position: relative;
 		width: 100%;
 		min-height: 80%;		
 	}
+	.titre{
+		color: @brand-primary;
+		margin-top: 0px;
+	}
+	.row.tweet{
+		display: table;
+		padding-top: 40px;
+		padding-bottom: 70px;
+		.profile{
+			display: table-cell;
+			img{
+				width: 100%;
+			}
+		}
+		.text{
+			display: table-cell;			
+			vertical-align: middle;
+			font-size: 25px;
+			font-family: @font-family-serif;
+		}
+		.numbers{
+			display: table-cell;
+			vertical-align: middle;			
+		}
+	}	
+}
+
+#section-background{
+	.section-background-image{
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 100%;
+		min-width: 100%;
+		}
+	}
+	.net{
+		z-index: -2;			
+	}
+	.blur{
+		z-index: -1;		
+}		
+
+// Pour la section-iamges : permet de passer d'une rangée de 10 à une rangée de 5 par exemple. 
+@media (min-width: @screen-md-min) {
+	.section-images{
+		.images .topic.active:before, .topic{
+				width: @widthTopic;
+		}	
+	}	
+}
+@media (max-width: @screen-md-min) {
+	.section-images{
+		.images .topic.active:before, .topic{
+				width: @widthTopic;
+		}	
+	}	
+}
+@media (min-width: @screen-sm-min) {
+	#main{
+		.row{
+			width: 0.75 * @screen-sm-min;
+			margin: 30px auto;
+		}
+	}
+}
+@media (min-width: @screen-md-min) {
+	#main{
+		.row{
+			width: 0.75 * @screen-md-min;
+			margin: 30px auto;
+		}
+	}
+}
+@media (min-width: @screen-lg-min) {
+	#main{
+		.row{
+			width: 0.75 * @screen-lg-min;
+			margin: 30px auto;
+		}
+	}
+}
+
+.logo{
+	//width: 0px;/*permet de centrer le titre*/
+	.pull-left();
+	img{
+		max-height: @navbar-height - 2* @margin-logo;
+		margin: @margin-logo;
+	}
+}	
+
+.titre{
+	font-size: 40px;
+	text-align: center;
+	font-weight: 400;
+	text-transform: uppercase;	
+}
+
+.wrapper-images{
+	height: 0px !important;
+	#section-images.stuck{
+		z-index: 1;
+		position: fixed;
+		top: @height-image-section;
+	}	
+}
+.wrapper-navbar{
+	#navbar.stuck{
+		width: 100%;
+		z-index: 1;
+		position: fixed;
+		top: @height-image-section;
+	}	
 }
