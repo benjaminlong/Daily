@@ -1,8 +1,8 @@
 // Variables persos
 @widthTopic :20%;
 @height-header:@navbar-height;
-@height-image-section:@height-header;
-@height-img-active-indicator:5px;
+@height-image-section:130px;
+@height-img-active-indicator:7px;
 @margin-logo:10px;
 
 //Autres variables modifiées
@@ -41,12 +41,13 @@
 		position: fixed;
 		width: 100%;
 		h2{
-			font-size: 30px;
+			font-size: 40px;
 			color: white;
 		}
 		.channel{
 			background-color: white;
-			height: 40px;
+			height: 45px;
+			vertical-align: -7px;
 		}
 	}	
 }
@@ -58,7 +59,7 @@
 	height: @height-image-section;
 	margin-top: -@height-image-section;
 	overflow: hidden;			
-	.box-shadow(0 2px 3px rgba(0,0,0,.1));
+	.box-shadow(0 -2px 3px rgba(0,0,0,.3));
 	.images {
 		font-size: 0;/*Important, permet d'éviter des gaps entre les images*/
 		position: absolute;
@@ -87,11 +88,12 @@
 					.transition(all 0.2s ease);
 					font-size: @font-size-base;
 					position: absolute;
-					bottom: 0;
+					bottom: 25%;
 					width: 100%;
 					text-align: center;
-					color: rgba(255, 255, 255, 0.8);
+					color: white;
 					z-index: 1;
+					white-space: normal;
 				}	
 				.shadow{
 					opacity: 0;
@@ -151,7 +153,11 @@
 		margin-left: 50px;
 		font-size: 25px;
 		.dropdown-toggle{
+			color: @gray;
 			padding: 0px;
+			.icon{
+				vertical-align: middle;
+			}
 		}
 		.channel{
 			max-height: @navbar-height - 4* @margin-logo;
@@ -186,6 +192,14 @@
 			a.active{
 				border-bottom: 5px solid @brand-primary;
 			}			
+		}
+		.rankby{
+			display: none;
+			width: 100%;
+			height: 0px;
+			text-align: center;
+			color: @gray-light;
+
 		}
 	}
 }
@@ -242,14 +256,28 @@
 				font-weight: 400;
 				color: @gray-dark;
 			}	
+			img{
+				width: 100%;
+				.box-shadow(0 2px 3px rgba(0,0,0,.1));				
+				border-radius: @border-radius-small;
+			}
 		}
 		.numbers{
-			font-size: 20px;
+			padding-top: 15px;
+			font-size: 22px;
 			color: @brand-primary;
 			vertical-align: middle;		
 			.number{
+				padding-right: 20px;
+				text-align: right;
 				display: block;
 				margin: 10px 0px;
+				.value{
+					
+					color: @gray-light;
+					font-size: 20px;
+					margin-right: 10px;
+				}
 			}	
 		}
 	}	
@@ -295,7 +323,7 @@
 @media (min-width: @screen-sm-min) {
 	#main{
 		.row{
-			width: 0.75 * @screen-sm-min;
+			width: @screen-sm-min;
 			margin: 30px auto;
 		}
 	}
@@ -303,7 +331,7 @@
 @media (min-width: @screen-md-min) {
 	#main{
 		.row{
-			width: 0.75 * @screen-md-min;
+			width: 0.9* @screen-md-min;
 			margin: 30px auto;
 		}
 	}
@@ -311,7 +339,7 @@
 @media (min-width: @screen-lg-min) {
 	#main{
 		.row{
-			width: 0.75 * @screen-lg-min;
+			width: 0.9 * @screen-lg-min;
 			margin: 30px auto;
 		}
 	}
@@ -357,7 +385,7 @@
 	#section-images.stuck{
 		z-index: 1;
 		position: fixed;
-		top: @height-image-section;
+		top: 0px;//@height-image-section;
 	}	
 }
 .wrapper-navbar{
@@ -365,6 +393,28 @@
 		width: 100%;
 		z-index: 1;
 		position: fixed;
-		top: @height-image-section;
+		top: 0px;//@height-image-section;
 	}	
 }
+
+#main.card-style{
+	.container{
+		background-color: #fcfcfc;
+		.separation{
+			display: none;
+		}
+		.row.tweet{
+			padding-bottom: 0px;
+			.profile{
+				padding-top: 15px;
+			}
+			.card{
+				padding: 15px 30px 30px 30px;
+				background-color: white;
+				.box-shadow(0 2px 3px rgba(0,0,0,0.1));
+				margin-bottom: 30px;
+			}
+		}		
+	}
+}
+
